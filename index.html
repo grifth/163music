@@ -5,17 +5,58 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
+  <link rel="stylesheet" href="./default.css">
 </head>
 <body>
-
-
-<div id="yyy">
-  <button id="xxx">upload</button>
+<div class="page">
+  <aside>
+    <div class="newSong">
+      新建歌曲
+    </div>
+    <ul class="songList">
+      <li>歌曲1</li>
+      <li>歌曲2</li>
+      <li>歌曲3</li>
+      <li>歌曲4</li>
+      <li>歌曲5</li>
+    </ul>
+    <div class="uploadArea">
+    <div id="uploadContainer" class="draggable">
+      <span id="uploadButton" class="clickable">upload</span>
+    </div>
+    </div>
+  </aside>
+  <main>
+    <form action="" class="form">
+      <div class="row">
+        <label for="">
+          歌名
+        </label>
+        <input type="text">
+      </div>
+      <div class="row">
+        <label for="">
+          歌手
+        </label>
+        <input type="text">
+      </div>
+      <div class="row">
+        <label for="">
+          外链
+        </label>
+        <input type="text">
+      </div>
+      <div class="row actions">
+        <button type="submit">保存</button>
+      </div>
+    </form>
+  </main>
 </div>
+
+
 <script src="./vendors/moxie.js"></script>
 <script src="./node_modules/plupload/js/plupload.min.js"></script>
 <script src="./node_modules/qiniu-js/dist/qiniu.min.js"></script>
-
 <script type="text/javascript" src="./main.js">
 </script>
 </body>
