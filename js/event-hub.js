@@ -3,14 +3,10 @@ window.eventHub = {
 
   },
   emit(eventName,data){
-       for(let key in this.events){
-         if(key === eventName){
-           let fnList = this.events[key]
+           let fnList = this.events[eventName]
            fnList.map((fn)=>{
              fn.call(undefined,data)
            })
-         }
-       }
   },
   on(eventName,fn){
     if(this.events[eventName]===undefined){

@@ -43,7 +43,7 @@
   }
   let model ={
     data:{
-      name:'',singer:'',link:'',id:''
+      name:'',link:''
     },
     create(data){
       var TestObject = AV.Object.extend('Song');
@@ -52,8 +52,11 @@
       song.set('singer',data.singer)
       song.set('link',data.link)
       return song.save().then((newSong)=>{
-        let {id,attributes} = newSong
-        Object.assign(this.data,{id,...attributes})
+        return new Promise((resolve,reject)=>{
+          let {id,attributes} = newSong
+          Object.assign(this.data,{id,...attributes})
+          resolve(newSong)
+        })
       },(err)=>{
         console.log(err);
       })
@@ -81,10 +84,11 @@
           data[string] = this.view.$el.find(`[name="${string}"]`).val()
         })
         this.model.create(data)
-            .then(()=>{
+            .then((newdata)=>{
               this.view.reset()
-              let string = JSON.stringify(this.model.data)
+              let string = JSON.stringify(newdata)
               let object = JSON.parse(string)
+              window.eventHub.emit('submit',undefined)
               window.eventHub.emit('create',object)
             })
       })
