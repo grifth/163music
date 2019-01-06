@@ -23,7 +23,6 @@
         this.active()
       })
       window.eventHub.on('select',(data)=>{
-        console.log(data);
         this.deactive()
       })
     },
