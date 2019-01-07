@@ -66,6 +66,9 @@
         this.model.data.songs.push(data)
         this.view.render(this.model.data)
       })
+      window.eventHub.on('new',()=>{
+        this.view.clearActive()
+      })
     },
     bindEvents(){
         $(this.view.el).on('click','li',(e)=>{
