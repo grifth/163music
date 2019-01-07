@@ -55,7 +55,7 @@
 
             var sourceLink = `${domain}${resKey}`;
             // console.log(sourceLink);
-            window.eventHub.emit('upload',{
+            window.eventHub.emit('new',{
               link:sourceLink,
               name:resKey
             })
