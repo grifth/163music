@@ -2,14 +2,10 @@
 {
   let view = {
     el:'#app',
-
     render(data){
-
-      $(this.el).append(`<style>.page::before{background:url(${data.song.cover}) center/cover transparent} </style>`);
-      $(this.el).find('.cover').attr('src',`${data.song.cover}`)
+      $(this.el).find('.song-bg').css('background-image',`url(${data.song.cover})`)
+      $(this.el).find('img').attr('src',`${data.song.cover}`)
       $(this.el).find('audio').attr('src',`${data.song.link}`)
-
-
     },
     play(){
         $(this.el).find('audio')[0].play()
@@ -35,7 +31,7 @@
     get(){
       var query = new AV.Query('Song')
       return query.get(this.data.id).then((data)=>{
-        Object.assign(this.data.song,{...data.attributes})
+      this.data.song  = Object.assign({id:data.id},data.attributes)
         return this.data
       })
     }
@@ -53,24 +49,27 @@
         this.bindEvent()
     },
     bindEvent(){
-        $(this.view.el).on('click','.icon-wrapper',(e)=>{
-            if(this.model.data.playStatus===true){
+        $(this.view.el).on('click','.playButton',(e)=>{
+            if(this.model.data.playStatus==='paused'){
+              $(this.view.el).find('.song-disc-wrap').addClass('active')
+              $(this.view.el).find('.song-disc-wrap').addClass('active')
               this.view.play()
-              $('.icon-wrapper').css('border', '0px solid white');
-              $('.disc-container').addClass('playing' )
-              this.model.data.playStatus = false
+
+              this.model.data.playStatus = 'playing'
             }else{
+
               this.view.pause()
-              $('.icon-wrapper').css('border', '1px solid white');
-              $('.disc-container').removeClass('playing' )
-              this.model.data.playStatus = true
+              $(this.view.el).find('.song-disc-wrap').removeClass('active')
+              $(this.view.el).find('.song-disc-wrap').removeClass('active')
+              this.model.data.playStatus = 'paused'
             }
         })
         let audio = $(this.view.el).find('audio')[0]
       audio.onended=(()=>{
-        $('.disc-container').removeClass('playing' )
-        this.model.data.playStatus = true
-        console.log(111111);
+        console.log(11111);
+        $(this.view.el).find('.song-disc-wrap').removeClass('active')
+        $(this.view.el).find('.song-disc-wrap').removeClass('active')
+        this.model.data.playStatus = 'paused'
       })
     },
     getSongId(){
@@ -96,4 +95,5 @@
   }
 
   controller.init(view,model)
+
 }

@@ -33,21 +33,24 @@
          // this.data.songs = songs.map((song)=>{
          //   return {id:song.id,...song.attributes}
          // })
-         songs.map((song)=>{
-           this.data.songs.push({id:song.id,...song.attributes})
-         })
+        this.data.songs = songs.map((song)=>{
+          return Object.assign({id:song.id},song.attributes)
+        })
          return this.data.songs
       })
     }
   }
   let controller = {
     init(view,model){
+      // alert(1)
       this.view = view
       this.model = model
       this.view.init()
+      // alert(2)
       this.model.find().then((data)=>{
         data.map((song)=>{this.view.render(song)})
       })
+      // alert(3)
     }
   }
   controller.init(view,model)
