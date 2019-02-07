@@ -72,7 +72,7 @@ section.topbar > a::after{
 .tabs-nav >li.active{
   color: #D43C33;
 }
-.tabs-nav >li.active>.text{ 
+.tabs-nav >li.active>.text{
 }
 .tabs-nav >li.active>.text::after{
   content: '';
@@ -103,17 +103,17 @@ section.topbar > a::after{
 
 section.playlists{
 }
-section.playlists > ol.songs{
+section.playlists > .songs{
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   font-size: 13px;
 }
-section.playlists > ol.songs > li{
+section.playlists > .songs > a{
   width: 32.8%;
   margin: 8px 0;
 }
-section.playlists > ol.songs > li p{
+section.playlists > .songs > a p{
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
@@ -122,26 +122,27 @@ section.playlists > ol.songs > li p{
   height: 36px;
   padding: 0 6px;
 }
-section.playlists > ol.songs > li img{
+section.playlists > .songs > a img{
   width: 100%;
 }
 section.songs{}
 section.songs > .list {
   margin-top: 18px;
 }
-section.songs > .list > li > h3{
+section.songs > .list > a > h3{
   font-size: 17px;
 }
-section.songs > .list > li > p{
+section.songs > .list > a > p{
   font-size: 12px;
   color: #888;
 }
-section.songs > .list > li{
+section.songs > .list > a{
   position: relative;
   margin-left: 10px;
   padding-bottom: 6px;
   padding-top: 5px;
   border-bottom: 1px solid #E2E2E3;
+  display: block;
 }
 section.songs > .list .playButton{
   position: absolute;
@@ -169,6 +170,7 @@ section.art svg{
   width: 230px;
   height: 44px;
 }
+
 section.art .link-wrapper > a{
   display: inline-block;
   border: 1px solid;
@@ -180,10 +182,9 @@ section.art .link-wrapper > a{
   margin-top: 10px;
   margin-bottom: 5px;
 }
+
 section.art .copyright{
   font-size: 12px;
   color: #888;
   transform: scale(.75);
 }
-
-

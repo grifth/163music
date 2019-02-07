@@ -4,7 +4,7 @@
     init(){
       this.$el  = $(this.el)
     },
-    template:`<li>
+    template:`<a class="music" href="./song.html?id={{song.id}}">
     <h3>{{song.name}}</h3>
     <p>
       <svg class="icon icon-sq">
@@ -12,15 +12,15 @@
       </svg>
       {{song.singer}}
     </p>
-    <a class="playButton" href="./song.html?id={{song.id}}">
+    <span class="playButton" >
       <svg class="icon icon-play">
         <use xlink:href="#icon-play"></use>
       </svg>
-    </a>
-  </li>`,
+    </span>
+  </a>`,
     render(song){
         let virtualDom = $(this.template.replace('{{song.name}}',song.name).replace('{{song.singer}}',song.singer).replace('{{song.id}}',song.id))
-        this.$el.find('ol.list').append(virtualDom)
+        this.$el.find('div.list').append(virtualDom)
     }
   }
   let model ={
