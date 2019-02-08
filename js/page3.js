@@ -5,10 +5,10 @@
       this.$el = $(this.el)
     },
     show(){
-      this.$el.show()
+      this.$el.addClass('active')
     },
     hide(){
-      this.$el.hide()
+      this.$el.removeClass('active')
     }
   }
 
