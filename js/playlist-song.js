@@ -29,7 +29,7 @@
       this.data.id = id
     },
     get(){
-      var query = new AV.Query('Song')
+      var query = new AV.Query('SongList')
       return query.get(this.data.id).then((data)=>{
         console.log(data);
         

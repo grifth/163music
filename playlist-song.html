@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>我的云音乐</title>
+  <link rel="stylesheet" href="./css/song.css">
+</head>
+<body>
+  <div class="song" id="app">
+      <audio src=""> </audio>
+      <div class="song-wrap">
+          <div class="song-bg"></div>
+          <div class="song-disc">
+              <div class="song-disc-wrap">
+              <div class="song-turn">
+                  <div class="song-img">
+                      <img src="about:blank" alt="">
+                  </div>
+              </div>
+              <div class="playButton">
+                  <svg id="play" class="icon">
+                      <use xlink:href="#icon-play1"></use>
+                  </svg>
+                  <svg id="stop" class="icon">
+                      <use xlink:href="#icon-stop"></use>
+                  </svg>
+              </div>
+          </div>
+          </div>
+
+          <div class="song-info">
+              <h2></h2>
+              <div class="song-scroll">
+                  <div class="song-lyr">
+                      <!-- <p>夜里做了美丽的恶梦</p>
+                      <p>夜里做了美丽的恶梦</p>
+                      <p>夜里做了美丽的恶梦</p>
+                      <p>夜里做了美丽的恶梦</p>
+                      <p>夜里做了美丽的恶梦</p> -->
+                  </div>
+              </div>
+          </div>
+          <div class="song-footer">
+              <div class="song-footer-wrap">
+                  <a href="./download.html" class="open">打 开</a>
+                  <a href="./download.html" class="download">下 载</a>
+              </div>
+          </div>
+      </div>
+  </div>
+
+
+  <script src="https://at.alicdn.com/t/font_397548_8cxafsw4d6ajor.js"></script>
+  <script type="text/javascript" src="./node_modules/vconsole/dist/vconsole.min.js"></script>
+
+  <script type="text/javascript" src="./js/admin/av-min.js"> </script>
+  <script type="text/javascript" src="./js/initializers/av.js"> </script>
+<script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="./js/admin/event-hub.js"></script>
+  <script src="./js/playlist-song.js"></script>
+  <script type="text/javascript">
+    var vConsole = new VConsole()
+
+
+    console.log(`var audio = $('audio')[0]
+                  audio.oncanplay = function(){
+                    console.log(111111)
+                  }
+    `)
+
+  </script>
+</body>
+</html>
