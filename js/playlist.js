@@ -5,7 +5,6 @@
             this.$el = $(this.el)
         },
         render(songList) {
-
             let html = ''
             let num = 0
             songList.map((song) => {
@@ -23,7 +22,6 @@
                        </div>                   
                  </a>`
             })
-
             $(this.el).append(html)
         }
     }
