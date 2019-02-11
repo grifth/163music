@@ -51,7 +51,9 @@
                         <svg class="icon icon-play">
                         <use xlink:href="#icon-play"></use>
                       </svg>
-                  </div></div></a>`
+                  </div>
+              </div>
+              </a>`
             }
 
         })

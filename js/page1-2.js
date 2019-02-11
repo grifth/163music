@@ -48,6 +48,7 @@
       this.view.init()
       // alert(2)
       this.model.find().then((data)=>{
+        $('.loading').remove()
         data.map((song)=>{this.view.render(song)})
       })
       // alert(3)
